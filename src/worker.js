@@ -222,7 +222,7 @@ ${description}
             },
             body: JSON.stringify({
               from: "Uxman Gee Website <onboarding@resend.dev>",
-              to: ["benjaminonyegbule68@gmail.com"],
+              to: ["usmanumar464522@gmail.com"],
               subject: `New Uxman Gee Order — ${orderId}`,
               text: emailBody
             })
