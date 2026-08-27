@@ -385,6 +385,7 @@ button.disabled=true;
 button.textContent='Sending Order...';
 
 const payload={
+access_key:'eb3df4f3-474d-4e2d-9b87-22655196f38d',
 name:document.getElementById('customerName').value.trim(),
 phone:document.getElementById('customerPhone').value.trim(),
 email:document.getElementById('customerEmail')?.value.trim()||'',
@@ -396,7 +397,7 @@ website:''
 };
 
 try{
-const r=await fetch('/api/orders',{
+const r=await fetch('https://api.web3forms.com/submit',{
 method:'POST',
 headers:{'Content-Type':'application/json'},
 body:JSON.stringify(payload)
@@ -404,11 +405,11 @@ body:JSON.stringify(payload)
 
 const result=await r.json();
 
-if(!r.ok)throw new Error(result.error||'Could not send order.');
+if(!result.success)throw new Error(result.message||'Could not send order.');
 
 orderForm.reset();
 
-alert(`Order sent successfully! Your Order ID is ${result.orderId}. We will contact you to confirm the details.`);
+alert('Order sent successfully! We will contact you shortly to confirm the details.');
 
 }catch(err){
 
